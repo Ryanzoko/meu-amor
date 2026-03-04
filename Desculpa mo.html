@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o meu amor ❤️</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 { color: #d63384; font-size: 2.5rem; margin-bottom: 10px; }
+        #maquina-escrever {
+            font-size: 1.3rem;
+            color: #4a4a4a;
+            min-height: 60px; 
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .btn {
+            background: #ff477e;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 71, 126, 0.4);
+        }
+        .coracao-flutuante { font-size: 50px; animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="coracao-flutuante">❤️</div>
+        <h1 id="status">Oi Amor...</h1>
+        <div id="maquina-escrever"></div>
+        <button class="btn" id="btn-acao" onclick="aceitar()">Me desculpa? 🥺</button>
+    </div>
+
+    <script>
+        const texto = "Te amoooo, por favor não fica brava comigo amor. Você é tudo para mim! ✨";
+        let i = 0;
+        const speed = 70; 
+
+        function digitar() {
+            if (i < texto.length) {
+                document.getElementById("maquina-escrever").innerHTML += texto.charAt(i);
+                i++;
+                setTimeout(digitar, speed);
+            }
+        }
+
+        function aceitar() {
+            const status = document.getElementById("status");
+            const msg = document.getElementById("maquina-escrever");
+            const btn = document.getElementById("btn-acao");
+
+            status.innerHTML = "EBAAA! 😍";
+            msg.innerHTML = "Prometo te recompensar com muitos beijos e carinho! Te amo infinitamente.";
+            btn.style.display = "none";
+            
+             
+            console.log("Desculpas aceitas com sucesso!");
+        }
+
+        
+        window.onload = digitar;
+    </script>
+</body>
+</html>
